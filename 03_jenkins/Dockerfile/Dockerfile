@@ -3,7 +3,7 @@ FROM node:lts AS builder
 # Create build directory
 RUN mkdir /build-dir
 # Add site files in build directory.
-ADD ./site/ /build-dir
+ADD ./site-src/ /build-dir
 # Building files
 RUN cd /build-dir && \
     echo "----=== npm install ===----" && \
