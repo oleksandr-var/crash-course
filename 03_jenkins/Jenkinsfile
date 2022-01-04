@@ -4,11 +4,11 @@ pipeline {
     agent any
 
     environment { 
-        CURRENT_DATE = """${sh(
-                returnStdout: true,
-                script: 'date +%Y%m%d%H%M%S'
-            )}"""
-        // CURRENT_DATE = 20220103224947
+        // CURRENT_DATE = """${sh(
+        //         returnStdout: true,
+        //         script: 'date +%Y%m%d%H%M%S'
+        //     )}"""
+        CURRENT_DATE = 20220104021032
     }
  
     stages {
@@ -30,8 +30,7 @@ pipeline {
                     ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no jenkins@docker.localhost " \
                         cd ./project && \
                         wget -O docker-compose.yml https://raw.githubusercontent.com/olexandr-v/crash-course/main/03_jenkins/docker-compose.yml && \
-                        CURRENT_DATE=${CURRENT_DATE}
-                        sed -i \"s/CURRENT_DATE/$CURRENT_DATE/g\" docker-compose.yml && \
+                        sed -i \"s/CURRENT_DATE/${CURRENT_DATE}/g\" docker-compose.yml && \
                         docker-compose up -d"
                 '''
             }
