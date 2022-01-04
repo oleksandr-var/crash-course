@@ -4,11 +4,11 @@ pipeline {
     agent any
 
     environment { 
-        // CURRENT_DATE = """${sh(
-        //         returnStdout: true,
-        //         script: 'date +%Y%m%d%H%M%S'
-        //     )}"""
-        CURRENT_DATE = 20220104021032
+        CURRENT_DATE = """${sh(
+                returnStdout: true,
+                script: 'date +%Y%m%d%H%M%S'
+            )}""".trim()
+        // CURRENT_DATE = 20220104021032
     }
  
     stages {
