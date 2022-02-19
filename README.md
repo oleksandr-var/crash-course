@@ -1,9 +1,3 @@
 # crash-course
 
 
-
-
-
-
-
-
